@@ -65,7 +65,7 @@ while True:
             trajectory.pop(0)    
     # Mostra o quadro atual na tela
     cv2.imshow("Frame", frame)
-    # Verifica se a tecla 'q' foi pressionada para sair do loop
+    # Verifica se a tecla 'q' foi pressionada para sair do loop. Também controla a velocidade do video caso não use webcam
     if cv2.waitKey(10) == ord('q'):
         break
 

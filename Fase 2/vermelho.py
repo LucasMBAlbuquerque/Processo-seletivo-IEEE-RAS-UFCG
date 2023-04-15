@@ -59,13 +59,13 @@ while True:
         
         # Desenha a trajetória no quadro atual
         for i in range(1, len(trajectory)):
-            cv2.line(frame, trajectory[i - 1], trajectory[i], (0, 0, 255), 2)
+            cv2.line(frame, trajectory[i - 1], trajectory[i], (0, 255, 255), 2)
         # Remove a trajetória após o intervalo de tempo definido
         if len(trajectory) > intervalo:
             trajectory.pop(0)    
     # Mostra o quadro atual na tela
     cv2.imshow("Frame", frame)
-    # Verifica se a tecla 'q' foi pressionada para sair do loop
+    # Verifica se a tecla 'q' foi pressionada para sair do loop. Também controla a velocidade do video caso não use webcam
     if cv2.waitKey(5) == ord('q'):
         break
 
