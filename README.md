@@ -14,3 +14,7 @@ Apenas seguindo os passos do da apostila [“Introdução a visão computacional
 ## Missão 3 - CoppeliaSim
 
 Com auxílio da [video-aula](https://www.youtube.com/watch?v=uCzbp8qIXF4) do Pranav Bhounsule foi possível realizar essa missão. Usando dois blocos e uma junta de revolução foi possível criar um pêndulo que está anexado no arquivo denominado “pendulo”.
+
+# Fase 2
+
+Fazendo uso da biblioteca openCV é possível detectar objetos de acordo com suas cores. Nos arquivos da pasta "Fase 2" temos um detector para as cores verde, laranja, azul e vermelha. cada arquivo .py tem um video como teste, mas você pode usar sua webcam para detectar qualquer objeto da de uma das cores citadas. Também é feito um rastro na cor vermelha do percurso que o objeto percorreu.

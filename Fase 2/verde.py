@@ -51,6 +51,7 @@ while True:
             if area > maior_area:
                 maior_area = area
                 maior_contorno = contorno
+        
         # Desenha o contorno e o centro do objeto verde no quadro atual
         if maior_contorno is not None:
             x, y, w, h = cv2.boundingRect(maior_contorno)
