@@ -8,7 +8,7 @@ azul_alto = np.array([130, 255, 255])
 
 # Inicia o objeto de captura de vídeo
 # Caso queira usar sua webcam mude o valor do cv2.VideoCapture para 0 (cv2.VideoCapture(0))
-cap = cv2.VideoCapture(r'Fase 2\azul.mp4')
+cap = cv2.VideoCapture(r'Fase 2\Videos\azul.mp4')
 
 # delay para o rastro do objeto sumir
 intervalo = 6
