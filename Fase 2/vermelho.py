@@ -9,7 +9,9 @@ vermelho_alto = np.array([180, 255, 255])
 # Inicia o objeto de captura de vídeo
 # Caso queira usar sua webcam mude o valor do cv2.VideoCapture para 0 (cv2.VideoCapture(0))
 cap = cv2.VideoCapture(r'Fase 2\vermelho.mp4')
-intervalo = 6
+
+# delay para o rastro do objeto sumir
+intervalo = 10
 # Inicializa a variável que armazena a trajetória do objeto
 trajectory = []
 
@@ -66,7 +68,7 @@ while True:
     # Mostra o quadro atual na tela
     cv2.imshow("Frame", frame)
     # Verifica se a tecla 'q' foi pressionada para sair do loop. Também controla a velocidade do video caso não use webcam
-    if cv2.waitKey(5) == ord('q'):
+    if cv2.waitKey(1) == ord('q'):
         break
 
 # Libera os recursos utilizados
