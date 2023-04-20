@@ -2,13 +2,13 @@ import cv2
 import imutils
 import numpy as np
 
-# Define a faixa de cor laranja em HSV
-laranja_alto = np.array([10, 150, 150])
-laranja_baixo = np.array([40, 255, 255])
+# Define a faixa de cor azul em HSV
+azul_baixo = np.array([100, 50, 50])
+azul_alto = np.array([130, 255, 255])
 
 # Inicia o objeto de captura de vídeo
 # Caso queira usar sua webcam mude o valor do cv2.VideoCapture para 0 (cv2.VideoCapture(0))
-cap = cv2.VideoCapture(r"Fase 2\Videos\laranja.mp4")
+cap = cv2.VideoCapture(r'Fase 2 - Object Tracking\Videos\azul.mp4')
 
 # delay para o rastro do objeto sumir
 intervalo = 6
@@ -25,13 +25,13 @@ while True:
     # Converte o quadro para o espaço de cor HSV
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     
-    # Cria uma máscara que filtra a cor laranja
-    mask = cv2.inRange(hsv, laranja_alto, laranja_baixo)
+    # Cria uma máscara que filtra a cor azul
+    mask = cv2.inRange(hsv, azul_baixo, azul_alto)
     
-    # Encontra os contornos dos objetos laranja na máscara
+    # Encontra os contornos dos objetos azul na máscara
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     
-    # Se houver pelo menos um objeto laranja, encontra o contorno com a área máxima
+    # Se houver pelo menos um objeto azul, encontra o contorno com a área máxima
     if len(contours) > 0:
         c = max(contours, key=cv2.contourArea)
         
@@ -44,7 +44,7 @@ while True:
             center = (None, None)
 
         trajectory.append(center)
-        # Encontra o maior contorno laranja
+        # Encontra o maior contorno azul
         maior_contorno = None
         maior_area = 0
         for contorno in contours:
@@ -52,7 +52,7 @@ while True:
             if area > maior_area:
                 maior_area = area
                 maior_contorno = contorno
-        # Desenha o contorno e o centro do objeto laranja no quadro atual
+        # Desenha o contorno e o centro do objeto azul no quadro atual
         if maior_contorno is not None:
             x, y, w, h = cv2.boundingRect(maior_contorno)
             cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
@@ -68,7 +68,7 @@ while True:
     # Mostra o quadro atual na tela
     cv2.imshow("Frame", frame)
     # Verifica se a tecla 'q' foi pressionada para sair do loop. Também controla a velocidade do video caso não use webcam
-    if cv2.waitKey(10) == ord('q'):
+    if cv2.waitKey(25) == ord('q'):
         break
 
 # Libera os recursos utilizados
